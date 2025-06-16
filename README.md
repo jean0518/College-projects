@@ -4,4 +4,5 @@
     <img src="https://skillicons.dev/icons?i=html,css,js" />
 </p>
 
-In this workspace, I showcase all the projects and functions I've created throughout my studies in the JS programming language.
+This workspace compiles the projects and features I've developed as part of my self-taught JavaScript training through various online courses.
+
