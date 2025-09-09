@@ -1,0 +1,576 @@
+/**************** Reset CSS ***************/
+:root {
+    --main-font: sans-serif;
+    --font-size-1: 25px;
+    --font-size-p: 16px;
+    --main-color: #129990;
+    --secod-color: #222; 
+    --colorSecond:#90D1CA ;
+    --transparent-teal: #56DFCF;
+    --main-modal-color: #129990;
+    --secod-modal-color: rgba(34, 34, 34, 0.85);
+
+    --gradiente-modal-color: linear-gradient(90deg,rgba(250, 218, 122, 1) 36%, rgba(250, 216, 108, 1) 87%);
+    --gradiente-secod-color: linear-gradient(90deg,rgba(18, 153, 144, 1) 1%, rgba(9, 107, 104, 1) 100%);
+}
+html{
+    box-sizing: border-box;
+    font-family: var(--main-font);
+    scroll-behavior: smooth;
+}
+*,
+*:before,
+*:after{
+    box-sizing: inherit;
+}
+body{
+    margin: 0;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    background-color: #FFFBDE;
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+/*  */
+
+header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 998;
+}
+h1{
+    background-color: var(--colorSecond);
+    color: #FFEEA9;
+    margin: 0px auto;
+    padding: 20px;
+    text-align: center;
+}
+.section{
+    text-align: center;
+    font-size: 15px;
+    padding: 1rem;
+    padding-top: 6rem;
+    width: 100%;
+    /* max-width: var(--container-width); */
+    min-height: 40rem;
+    /* min-height: 100dvh; */ /* Hace que aunque el contenido de la seccion se pequeño, se muestra la minima altura del viewport*/
+
+}
+.panel{
+    position: fixed;
+    z-index: 998;
+    top: 4.80rem;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    /* Se aplica este posicionamiento del top, bottom, left y right para que el panel ocupe toda la pantalla del navegador */
+    width: 35%;
+    background-color: var(--secod-modal-color);
+    /* De arriba */
+    transform: translate(-100%, 0); /* en CSS se usa para mover un elemento respecto a su posición original */
+
+    /* Se aplica una propiedad de transición para que la propiedad se vea dinamicamente */
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+}
+@media (max-width: 720px) {
+    .panel{
+        width: 50%;
+    }
+}
+.panel.is-active{
+    transform: translate(0,0);
+}
+
+.menu{
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Direcciona el flex en columna para que el menu se vea horizontalmente */
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+}
+
+/* Estilo para el menu desplegable */
+.menu a{
+    padding: 20px;
+    width: 90%;
+    display: block;
+    font-size: 15px;
+    text-decoration: none;
+    color: var(--main-color);
+    transition: all 0.3 ease;
+}
+
+/* Estilo para el menu cuando se interactua */
+.menu a:hover{
+    font-weight: bold; /* Coloca el texto en negrita */
+    color: var(--secod-color);
+    background-color: var(--main-modal-color);
+}
+#hamburger{
+    position: fixed;
+    z-index: 999; /* Permite que cualquier contenido que este despues del boton en el html, no se sobreponga en el navegador */
+    color: #129990;
+    width: 3rem;
+    height: 3rem;
+    border-style: none;
+    padding: 0;
+    align-items: center;
+    align-content: center;
+    bottom: 1dvh;
+    right: 1dvh;
+}
+.panelBtn.Firstposition{
+    top: 2dvh;
+    left: 1dvh;
+}
+
+/* Estilo para el boton del scroll Arrow Up*/
+.arrowUp{
+    position: fixed;
+    z-index: 999;
+    width: 3rem;
+    height: 3rem;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: none;
+    bottom: 1dvh;
+    right: 1dvh;
+    font-size: 4rem;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+.arrowUp:hover{
+    transition: background-color 0.3s ease-in-out;
+    color: var(--transparent-teal);
+}
+.arrowUp.ScrollPosition{
+    bottom: 8dvh;
+    right: 1dvh;
+}
+.arrowUp.Opacity1{
+    opacity: 1;
+    cursor: pointer;
+}
+
+/* Estilo para el boton dark/light */
+.darkBtn{
+    display: block;
+    margin: 0 auto;
+    z-index: 999;
+    width: 4.5rem;
+    height: 2rem;
+    border-radius: 2rem;
+    border-style: none;
+}
+.sun{
+    width: 48%;
+    height: 95%;
+    display: flex;
+    border-radius: 20px;
+    background: var(--gradiente-modal-color);
+    font-size: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    transform: translate(0, 0);
+}
+.sun.moon{
+    transform: translate(114%, 0);
+    background: var(--gradiente-secod-color);
+}
+
+
+/* Cambio de color para el modo oscuro del menu desplegable */
+.dark-aside{
+    background-color: var(--transparent-teal);
+}
+
+.dark-nav a{
+    color: var(--secod-color);
+    font-size: 15px;
+}
+
+.dark-nav a:hover{
+    background-color: var(--secod-color);
+    color: var(--main-color);
+    font-weight: bold;
+}
+
+
+/* Cambio de color para el navegador completo */
+.dark-mode{
+    background-color: var(--secod-color);
+    color: var(--main-color);
+}
+
+/* Estilo sección 1 (Reloj) */
+
+.containterReloj{
+    background-color: #129990;
+    border-radius: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    overflow: hidden;
+    align-items: center;
+}
+.containterReloj button{
+    cursor: pointer;
+    width: 100%;
+    height: 250px;
+    margin-right: -0.5rem;
+    margin-top: -0.5rem;
+    margin-bottom: -0.5rem;
+    padding: 0;
+    border-style: none;
+    transform: skew(-10deg) translateX(0%);
+    transition: all 0.3s ease;
+}
+.containterReloj button:hover{
+    background-color: var(--colorSecond);
+}
+.containterReloj button.active{
+    transform: skew(-10deg) translateX(200%);
+}
+
+.contDate{
+    position: absolute;
+    left: 13%;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    color: #b71c1c;
+}
+#fecha{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--secod-color);
+    color: #FFFBDE;
+    margin-bottom: 5px;
+    height: 2rem;
+}
+#reloj{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--secod-color);
+    color: #FFFBDE;
+}
+#reloj h2{
+    font-size: 5rem;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+/* Estilo Para la sección 2 (Eventos del Teclado) */
+.fondo{
+    display: flex;
+    min-height: 60vh;
+    background-color: rgba(1, 1, 19, 0.523);
+}
+.ball{
+    margin: auto;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 5rem;
+    background-color: var(--main-modal-color);
+}
+
+/* Network Status (Esta propiedad se utiliza como estilo para detectar el mensaje de conexion y desconexión de interner*/
+.online,
+.offline{
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    padding: 0.10rem;
+    border-radius: 0px 0px 5px 5px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    background-color: #1b5e1f;
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+.offline{
+    background-color: #b71c1c;
+}
+.opacityConexion{
+    opacity: 0;
+}
+
+
+/* Estilo para las imagenes filtradas (SearchFilters) */
+.cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.card{
+    background-color: var(--secod-color);
+    color: var(--main-color);
+    transition: all 0.3s ease-out;
+}
+/* Estilo para acoplar la imagen dentro del elemnto card, y que en este caso tenga el tamaño completo (Ancho y Alto) */
+.card img{
+    width: 100%;
+    height: auto;
+}
+.card figcaption{
+    padding: 0.5rem;
+}
+.filter{
+    /* display: none; */
+    visibility: hidden;
+    opacity: 0;
+    order: 1;
+}
+
+
+/* Estilo para modificar el sorteo Digital */
+.players{
+    margin: 0 auto;
+    margin-top: 10px;
+    text-align: left;
+    width: 30%;
+    border-style: outset;
+    border-color: var(--main-modal-color);
+}
+@media (max-width: 720px) {
+    .players {
+        width: 100%;
+    }
+}
+.player{
+    font-size: large;
+    padding: 0.5rem;  
+}
+#winner-btn{
+    margin: 0 auto;
+}
+
+
+/* Resposive Slider */
+.slider{
+    position: relative;
+    width: 80%;
+    margin: 1rem auto;
+    text-align: center;
+    border-style: solid;
+}
+.slider-slides{
+    position: relative;
+    height: 400px;
+}
+.slider-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease;
+}
+.slider-slide img{
+    /* Con la propiedad inherit se hereda de la clase padre*/
+    height: inherit;
+    width: inherit;
+    /* Esta propiedad adapta una imagen a la altura del contenedor haciendo responsiva las imagenes */
+    object-fit:cover;
+    object-position: 50% 0%;
+}
+.slider-slide.active{
+    opacity: 1;
+    visibility: visible;
+}
+/* Botones Slide */
+.slider-btn{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 3rem;
+    font-weight: bold;
+}
+.slider a{
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border: thin solid #000;
+    text-decoration: none;
+    background-color: #fff;
+    color: #000;
+    transition: all 0.3s ease;
+}
+.slider a:hover{
+    color: #4d4d4d;
+}
+
+/* Scroll-Spy para el nav */
+@media (min-width: 1024px){
+    .menu a.active{
+        color: var(--secod-color);
+        background-color: var(--main-color);
+    }
+}
+
+/* Tamaño y estilo de los videos */
+video{
+    width: 40%;
+}
+@media (max-width: 720px) {
+    video {
+        width: 100%;
+    }
+}
+
+
+/* contactForm Validations */
+.contact-form{
+    --form-ok-color: #4caf50;
+    --form-error-color: #f44336;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+.contact-form > * {
+/* * hace referencia a todos los selectores que estan dentro del la clase */
+padding: 0.5rem;
+margin: 1rem auto;
+display: block;
+width: 100%;
+}
+
+.contact-form textarea {
+    resize: none;
+}
+
+.contact-form legend,
+.contact-form-response{
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.contact-form input,
+.contact-form textarea {
+    font-size: 1rem;
+    font-family: sans-serif;
+    
+}
+
+.contact-form input[type="submit"]{
+    width: 50%;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.contact-form *::placeholder{
+    color: #000;
+}
+
+.contact-form [required]:valid{
+    border: thin solid var(--form-ok-color);
+}
+.contact-form [required]:invalid{
+    border: thin solid var(--form-error-color);
+}
+
+
+
+/* Span estilo formulario con JS */
+.contact-form-error{
+    margin-top: -1rem;
+    font-size: 80%;
+    background-color: var(--form-error-color);
+    color: #fff;
+    transition: all 800m ease;
+}
+.contact-form-error.is-active{
+    display: block;
+    animation: show-message 1s 1 normal 0s ease-out both;
+}
+
+.none{
+    display: none;
+}
+
+@keyframes show-message {
+    0% {
+        visibility: hidden;
+        opacity: 0;
+    }
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+/* Tamaño del SVG loader */
+.contac-form-loader{
+    position: relative;
+    margin: 0 auto;
+    padding: 0;
+    width: 10rem;
+    top: -2rem;
+}
+
+
+
+/*  Estilo traductor */
+
+.boxArea{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 2rem;
+    padding: 0.5rem;
+    width: 100%;
+}
+.boxArea textarea{
+    resize: none;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    border: thin solid;
+    font-family: sans-serif;
+}
+.areaItem{
+    display: flex;
+    flex-direction: column;
+}
+.selectArea {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.selectArea h4{
+    text-align: start;
+    margin: 0.5rem;
+    width: 100%;
+    font-size: 1.1rem
+}
+.selectArea select{
+    width: 45%;
+    margin-left: 10px;
+}
+.traslate{
+    width: 40%;
+    padding: 0.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: sans-serif;
+}
