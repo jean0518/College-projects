@@ -23,7 +23,7 @@ export function digitalClock(clock, dayAll, btnPlay, btnStop){
                     date.getFullYear(),
                     ];
                 d.querySelector(clock).innerHTML = `<h2> ${hour % 12 || 12}:${String(minutes).padStart(2, "0")}</h2><p>${amPm}<br>${String(seconds).padStart(2, "0")}</p>`;
-                d.querySelector(dayAll).innerHTML = `<p> 05 Dia:${day} Mes:${month} año:${year}</p>`
+                d.querySelector(dayAll).innerHTML = `<p> Dia:${day} Mes:${month} año:${year}</p>`
             }, 0);
             e.stopPropagation();
             e.target.disabled = true;
